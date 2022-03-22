@@ -23,10 +23,6 @@ class ToolServiceProvider extends ServiceProvider
    */
   public function boot()
   {
-    $this->app->booted(function () {
-      $this->routes();
-    });
-
     $this->publishes([
       __DIR__ . "/../resources/lang" => resource_path(
         "lang/vendor/" . static::$name
@@ -47,6 +43,7 @@ class ToolServiceProvider extends ServiceProvider
    */
   public function register()
   {
+    $this->routes();
   }
 
   /**
